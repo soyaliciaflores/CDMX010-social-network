@@ -1,0 +1,40 @@
+*{
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background-color: #F8F4F3;
+}
+@media only screen and (max-width: 375px){
+  .div-login{
+    width: 100%;
+    min-height: 812px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-evenly;
+    padding: 0px;
+  }
+.img-logo-login{
+    width: 70%;
+}
+.form-login{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 285px
+}
+.input-login{
+    margin-bottom: 46px;
+}
+.socialnetwork-logo{
+    width: 50px;
+}
+.container-social{
+  width: 285px;
+  display: flex;
+  justify-content: space-around;
+}
+}
