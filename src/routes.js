@@ -1,13 +1,17 @@
-import { home } from "./home.js"
-import{register} from "./register.js"
+import {home} from "./home.js"
+import {login} from "./login.js"
+import {me} from "./me.js"
+import {register} from "./register.js"
 
-export const ruotes = {
+export const routes = {
     '/' : home,
     '/register' : register,
-}
+    '/login' : login,
+    '/me' : me,
+};
 
-export const rootDiv = document.getElementById("root");
-rootDiv.innerHTML = ruotes[window.location.pathname];
+export const rootDiv = document.getElementById('root');
+rootDiv.innerHTML = routes[window.location.pathname];
 
 export const onNavigate = (pathname) => {
     window.history.pushState(
@@ -15,7 +19,6 @@ export const onNavigate = (pathname) => {
         pathname,
         window.location.origin + pathname
     )
-    rootDiv.innerHTML = ruotes[pathname]
+    rootDiv.innerHTML = routes[pathname]
 }
-
 

@@ -1,3 +1,4 @@
 export const home = `
-<h1> Estas en Home </h1>
+<h1>Estas en tu muro</h1>
 `;
+
