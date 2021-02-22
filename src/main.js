@@ -17,10 +17,25 @@ const home = document.getElementById("home");
 const me = document.getElementById("me");
 const login = document.getElementById("login");
 const register = document.getElementById("register");
+const hereRegister = document.getElementById("hereRegister");
+const backToLogin= document.getElementById("backToLogin");
+const buttonRegister= document.getElementById("btn-register");
 
+window.addEventListener("DOMContentLoaded", () => {
+    const buttonLogin = document.getElementById("button-login");
+    buttonLogin.addEventListener("click", () => onNavigate('/home'));
+})
+
+hereRegister.addEventListener("click", () => onNavigate('/register'));
+
+
+backToLogin.addEventListener("click", () => onNavigate('/'));
+
+
+buttonRegister.addEventListener("click", () => onNavigate('/home'));
 
 home.addEventListener("click", () => {
-    onNavigate('/');
+    onNavigate('/home');
     return false;
 });
 
@@ -30,7 +45,7 @@ me.addEventListener("click", () => {
 });
 
 login.addEventListener("click", () => {
-        onNavigate('/login');
+        onNavigate('/');
         return false;    
 });
 

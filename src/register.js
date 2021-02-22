@@ -1,16 +1,18 @@
 export const register = `
 <div class="div-register">
-  <img src="./assets/coffeehousesmall-01.png" alt="Logo Coffee House">
-  <h2> Registrate </h2>
-  <form>
-    <input type="email" class="input-email" placeholder="Correo Electrónico">
-    <input type="text" class="input-name" placeholder="Nombre completo">
-    <input type="text" class="input-user" placeholder="Nombre de usuario">
-    <input type="password" class="input-password" placeholder="Contraseña">
-    <input type="password" class="input-passwordConfirm" placeholder="Confirmar contraseña">
-    <input type="submit" class="submit-register" placeholder="Registrarme">
+  <div>
+    <img class="img-logo-login" src="./assets/coffeehousesmall-01.png" alt="Logo Coffee House"><br>
+    <h2 class="titulo"> Registrate </h2>
+  </div>
+  <form class="container-register">
+    <input class="input-login line" type="email" placeholder="Correo Electrónico">
+    <input class="input-login line" type="text" placeholder="Nombre completo">
+    <input class="input-login line" type="text" placeholder="Nombre de usuario">
+    <input class="input-login line" type="password" placeholder="Contraseña">
+    <input class="input-login line" type="password" placeholder="Confirmar contraseña">
+    <button id="btn-register" class="input-login send">Registrate</button>
   </form>
+  <button id="backToLogin" class="input-login send">Regresar</button>
   <p>Al registrarte aceptas términos y condiciones de privacidad</p>
-
 </div>
-`
+`;
