@@ -1,40 +1,117 @@
-*{
+* {
   padding: 0px;
   margin: 0px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-body{
-    background-color: #F8F4F3;
+body {
+  background-color: #f8f4f3;
 }
-@media only screen and (max-width: 375px){
-  .div-login{
+
+.ul-links {
+  display: flex;
+  align-content: space-around;
+  list-style: none;
+  width: 360px;
+  justify-content: center;
+}
+.links {
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+}
+
+@media only screen and (max-width: 360px) {
+  /* Login */
+  .div-login {
     width: 100%;
-    min-height: 812px;
+    min-height: 640px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-content: space-evenly;
+    align-content: space-around;
     padding: 0px;
+    padding-bottom: 25px;
   }
-.img-logo-login{
-    width: 70%;
-}
-.form-login{
+  .img-logo-login {
+    width: 60%;
+  }
+
+  h2 {
+    padding: 20px 0px 40px 0px;
+  }
+  .form-login {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    width: 285px
-}
-.input-login{
-    margin-bottom: 46px;
-}
-.socialnetwork-logo{
+    width: 285px;
+  }
+  .input-login {
+    margin-bottom: 25px;
+  }
+  input:focus {
+    outline: none;
+  }
+  .line {
+    text-align: center;
+    background-color: #f8f4f3;
+    border: none;
+    border-bottom: 2px solid black;
+    font-size: 16px;
+  }
+
+  .send {
+    border: 3px solid #a8babe;
+    border-radius: 20px;
+    background-color: white;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 3px;
+  }
+  .send:hover {
+    color: #f8f4f3;
+    background-color: #4e1706;
+    border: 3px solid #c88758;
+  }
+
+  .socialnetwork-logo {
     width: 50px;
-}
-.container-social{
-  width: 285px;
-  display: flex;
-  justify-content: space-around;
-}
+  }
+
+  .text-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 285px;
+  }
+
+  p {
+    padding-bottom: 20px;
+  }
+  .container-social {
+    width: 285px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  /* Register */
+  .div-register {
+    width: 100%;
+    min-height: 640px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-around;
+    padding: 0px;
+    padding-bottom: 25px;
+    text-align: center;
+  }
+
+  .container-register {
+    display: flex;
+    flex-direction: column;
+    width: 285px;
+    justify-content: space-around;
+  }
 }
