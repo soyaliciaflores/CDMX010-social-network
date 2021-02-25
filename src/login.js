@@ -1,3 +1,6 @@
+import { logIn, authGoogle, authFacebook } from "./configFirebase.js";
+import { onNavigate } from "./routes.js";
+
 export const login = `
 <div class="div-login">
   <div class="container-image">
@@ -25,3 +28,23 @@ export const login = `
   </div>
 </div>
 `;
+
+document.addEventListener("click", (e) => {
+  if (e.target.matches("#button-login")) {
+    console.log("Estas en Home");
+    logIn();
+    e.preventDefault();
+  }
+  if (e.target.matches("#icon-google")) {
+    console.log("Estas en Home");
+    authGoogle();
+  }
+  if (e.target.matches("#icon-facebook")) {
+    console.log("Estas en Home");
+    authFacebook();
+  }
+  if (e.target.matches("#hereRegister")) {
+    console.log("Estas en Register");
+    onNavigate("/register");
+  }
+});

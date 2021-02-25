@@ -5,8 +5,6 @@ import { myFunction } from './lib/index.js';
 myFunction();
 */
 
-import { routes, rootDiv, onNavigate } from "./routes.js";
-
 window.onpopstate = () => {
   rootDiv.innerHTML = routes[window.location.pathname];
 };
@@ -15,22 +13,8 @@ window.onNavigate = onNavigate;
 
 const home = document.getElementById("home");
 const me = document.getElementById("me");
-const login = document.getElementById("login");
+const loginButton = document.getElementById("login");
 const register = document.getElementById("register");
-const hereRegister = document.getElementById("hereRegister");
-const backToLogin = document.getElementById("backToLogin");
-const buttonRegister = document.getElementById("btn-register");
-
-window.addEventListener("DOMContentLoaded", () => {
-  const buttonLogin = document.getElementById("button-login");
-  buttonLogin.addEventListener("click", () => onNavigate("/home"));
-});
-
-hereRegister.addEventListener("click", () => onNavigate("/register"));
-
-backToLogin.addEventListener("click", () => onNavigate("/"));
-
-buttonRegister.addEventListener("click", () => onNavigate("/home"));
 
 home.addEventListener("click", () => {
   onNavigate("/home");
@@ -42,7 +26,7 @@ me.addEventListener("click", () => {
   return false;
 });
 
-login.addEventListener("click", () => {
+loginButton.addEventListener("click", () => {
   onNavigate("/");
   return false;
 });
