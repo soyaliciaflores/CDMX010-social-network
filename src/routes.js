@@ -4,9 +4,9 @@ import { me } from "./me.js";
 import { register } from "./register.js";
 
 export const routes = {
-  "/": home,
+  "/home": home,
   "/register": register,
-  "/login": login,
+  "/": login,
   "/me": me,
 };
 
