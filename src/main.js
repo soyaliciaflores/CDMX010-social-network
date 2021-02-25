@@ -6,7 +6,6 @@ myFunction();
 */
 import {routes, rootDiv, onNavigate} from "./routes.js"
 
-
 window.onpopstate = () => {
     rootDiv.innerHTML = routes[window.location.pathname]
 }
@@ -15,12 +14,11 @@ window.onNavigate = onNavigate
 
 const home = document.getElementById("home");
 const me = document.getElementById("me");
-const login = document.getElementById("login");
+const loginButton = document.getElementById("login");
 const register = document.getElementById("register");
-
-
+   
 home.addEventListener("click", () => {
-    onNavigate('/');
+    onNavigate('/home');
     return false;
 });
 
@@ -29,8 +27,8 @@ me.addEventListener("click", () => {
     return false;
 });
 
-login.addEventListener("click", () => {
-        onNavigate('/login');
+loginButton.addEventListener("click", () => {
+        onNavigate('/');
         return false;    
 });
 
