@@ -12,7 +12,7 @@ export const register = `
     <input class="input-login line" type="password" placeholder="Confirmar contraseña">
     <button id="btn-register" class="input-login send">Registrate</button>
   </form>
-  <button id="backToLogin" class="input-login send">Regresar</button>
+  <button id="backToLogin" class="input-login send back">Regresar</button>
   <p>Al registrarte aceptas términos y condiciones de privacidad</p>
 </div>
 `;

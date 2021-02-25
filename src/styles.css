@@ -45,6 +45,9 @@ body {
   .input-login {
     margin-bottom: 25px;
   }
+  button:focus {
+    outline: none;
+  }
   input:focus {
     outline: none;
   }
@@ -67,6 +70,10 @@ body {
     color: #f8f4f3;
     background-color: #4e1706;
     border: 3px solid #c88758;
+  }
+  .back{
+    padding: 5px 10px 5px 10px;
+    font-size:16px;
   }
   .socialnetwork-logo {
     width: 50px;
@@ -104,28 +111,18 @@ body {
     width: 285px;
     justify-content: space-around;
   }
-  .* {
-  padding: 0px;
-  margin: 0px;
-  font-family: "Poppins", sans-serif;
 }
-body {
-  background-color: #f8f4f3;
-}
-.ul-links {
-  display: flex;
-  align-content: space-around;
-  list-style: none;
-  width: 360px;
-  justify-content: center;
-}
-.links {
-  text-decoration: none;
-  color: black;
-  padding: 10px;
-}
-@media only screen and (max-width: 360px) {
+
+/*  Laptop */
+@media only screen and (max-width: 1920px) {
   /* Login */
+  body {
+    background-image: url(./assets/Pie\ cafe.png);
+    background-size: 30%;
+    background-repeat: repeat-x;
+    background-position: bottom;
+    background-attachment: fixed;
+  }
   .div-login {
     width: 100%;
     min-height: 640px;
@@ -136,22 +133,34 @@ body {
     padding: 0px;
     padding-bottom: 25px;
   }
+  .container-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 5%;
+  }
+  .container-login {
+    text-align: center;
+  }
   .img-logo-login {
-    width: 60%;
+    width: 80%;
   }
   h2 {
-    padding: 20px 0px 40px 0px;
+    padding: 20px 0px 20px 0px;
   }
   .form-login {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    width: 285px;
+    width: 300px;
   }
   .input-login {
     margin-bottom: 25px;
   }
   input:focus {
+    outline: none;
+  }
+  button:focus {
     outline: none;
   }
   .line {
@@ -160,6 +169,7 @@ body {
     border: none;
     border-bottom: 2px solid black;
     font-size: 16px;
+    margin-bottom: 45px;
   }
   .send {
     border: 3px solid #a8babe;
@@ -174,6 +184,10 @@ body {
     background-color: #4e1706;
     border: 3px solid #c88758;
   }
+  .back {
+    padding: 5px 10px 5px 10px;
+    font-size: 16px;
+  }
   .socialnetwork-logo {
     width: 50px;
   }
@@ -184,13 +198,11 @@ body {
     text-align: center;
     width: 285px;
   }
-  p {
-    padding-bottom: 20px;
-  }
   .container-social {
     width: 285px;
     display: flex;
     justify-content: space-around;
+    margin: 20px 0px 70px 0px;
   }
   /* Register */
   .div-register {
@@ -199,16 +211,38 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-content: space-around;
+    align-content: space-between;
     padding: 0px;
-    padding-bottom: 25px;
     text-align: center;
   }
   .container-register {
     display: flex;
     flex-direction: column;
-    width: 285px;
-    justify-content: space-around;
+    width: 300px;
+    text-align: center;
+  }
+  .line-register {
+    text-align: center;
+    background-color: #f8f4f3;
+    border: none;
+    border-bottom: 2px solid black;
+    font-size: 16px;
+    margin-bottom: 30px;
   }
 }
+
+@media only screen and (max-width: 360px){
+  .container-navegation{
+    height: 30px;
+    width: 360px;
+    background-color: #c88758;
+    justify-content: space-around;
+  }
+  .icon-home{
+    height: 20px;
+    width: 20px;
+  }
+  .logo-home{
+    height: 50px;
+  }
 }
