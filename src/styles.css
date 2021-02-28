@@ -239,3 +239,222 @@ body {
     margin-bottom: 30px;
   }
 }
+
+@media only screen and (max-width: 360px) {
+  /*My profile*/
+  .container-me{
+    display: flex;
+    flex-wrap: wrap;
+    height:auto;
+    padding-top: 10vh;
+  }
+  p{
+    font-size: 14px;
+  }
+  .container-home-head{
+    display: flex;
+    background-color: white;
+    border-bottom: 2px #4e1706 solid;
+    width: 100vw;
+    height: 10vh;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+  }
+  .div-search-head{
+    width: 60px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .logo-home{
+    width: 70px;
+    height: 40px;
+    padding-left: 10%;
+  }
+  .icon-home-head{
+    height: 20px;
+  }
+  #img-profile{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    border: 1px #4e1706 solid;
+    margin: 3%;
+    display: block;
+  }
+  .container-posts{
+    width: 80%; 
+    margin: auto;
+    display: block;
+    margin: auto;
+  }
+  .posts{
+    width: 260px;
+    height: 50px;
+    border: 2px #4e1706 solid;  
+    display: block;
+    margin: auto;
+  }
+  .icon-left{
+    display:flex;
+    align-items: center;
+  }
+  .icons-posts{
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+  }
+  .input-post{
+    background-color: #dfe1e3;
+    border: 2px #4e1706 solid;
+    width: 98%;
+    height: 25px;
+    border-radius: 15px;
+    padding: 2%;
+    overflow-y: scroll;
+    line-height: 95%;
+  }
+  .icons-myPosts{
+    width: 98%;
+    /*padding: 2%;*/
+    display: flex;
+    justify-content: flex-end;
+    outline: none;
+  }
+  .container-img{
+    width:100%;
+    height: 20%;
+  }
+  .img-post{
+    width: 298px;
+    height: 80px;
+    border: 2px  #4e1706 solid;
+  }
+  .container-icons-post{
+    display:flex;
+    justify-content: space-between;
+  }
+  .btn-icons{
+    background-color: #f8f4f3;
+    outline: none;
+    border: none;
+  }
+  #icon-likes{
+  width:25px;
+  }
+  .counter{
+    padding: 5px ;
+    display:inline-block;
+  }
+  section p{
+    line-height: 95%;
+  }
+  .section-posts{
+    display: flex;
+    align-content: space-between;
+    flex-direction: column;
+    height: 40%;
+  }
+  .myPost{
+    width:95%;
+    height: 40px;
+    background-color: #a8babe;
+    border: 2px solid #4E1706;
+    border-radius: 16px 0px;
+    padding: 2%;
+    margin-bottom: 5%;
+    overflow-y: scroll;
+  }
+  .div-comments{
+    display: flex;
+    align-content: flex-start;
+  }
+  .photo-friend{
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    border: 1px #4e1706 solid;
+    /*margin: 3%;*/
+    display: block;
+  }
+  .first-comment{
+    background-color: #dfe1e3;
+    border: 2px #4e1706 solid;
+    width: 85%;
+    height: 35px;
+    border-radius: 16px 0px;
+    /*padding: 2px;*/
+    margin-left: 2%;
+    margin-bottom: 3.5%;
+    overflow-y: scroll;
+    line-height: 95%;
+  }
+  .second-comment{
+    background-color: #dfe1e3;
+    border: 2px #4e1706 solid;
+    width: 85%;
+    height: 35px;
+    border-radius: 16px 0px;
+   /* padding: 2px;*/
+    margin-left: 2%;
+    margin-bottom: 3.5%;
+    overflow-y: scroll;
+    line-height: 95%;
+  }
+  .counter-comments{
+    margin: 1%;
+    padding: 0px 0px 4px;
+  }
+  .form-comments{
+    display:flex;
+    align-items: center;
+  }
+  .post-comment{
+    background-color: #dfe1e3;
+    border: 2px #4e1706 solid;
+    width: 82%;
+    height: 25px;
+    border-radius: 15px;
+    padding: 1%;
+    overflow-y: scroll;
+  }
+  .container-navigation{
+    position: fixed;
+    padding: 2%;
+    background-color:#c88758;
+    height: 25px;
+    display: flex;
+    border: 2px #4e1706 solid;
+    width: 100vw;
+    justify-content: space-around;
+    bottom: 0px;
+    }
+  .icon-home{
+    height: 25px;
+    display:flex;
+  }
+
+  /*home*/
+  .container-home{
+    display: flex;
+    flex-wrap: wrap;
+    height:100vh;
+    padding-top: 10vh;
+    align-content: space-between;
+  }
+  .myPost-home{
+    width:95%;
+    height: 60px;
+    background-color: #a8babe;
+    border: 2px solid #4E1706;
+    border-radius: 16px 0px;
+    padding: 2%;
+    margin-bottom: 5%;
+    overflow-y: scroll;
+  }
+  .img-post-home{
+    width: 280px;
+    height: 120px;
+    border: 2px  #4e1706 solid;
+  }
+}

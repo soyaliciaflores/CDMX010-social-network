@@ -1,4 +1,4 @@
-import {home} from "./home.js"
+import {home,} from "./home.js"
 import {login} from "./login.js"
 import {me} from "./me.js"
 import {register} from "./register.js"
