@@ -1,4 +1,4 @@
-import {logIn, authGoogle, authFacebook} from "./configFirebase.js"
+import {logIn, authGoogle, authFacebook, validarEmail} from "./configFirebase.js"
 import { onNavigate } from "./routes.js";
 
 export const login = `
@@ -9,8 +9,8 @@ export const login = `
   <div class="container-login">
     <h2> Inicia sesión </h2><br>
     <form class="form-login">
-     <input id="email-login" class="input-login line" type="email" placeholder="Correo Electrónico">
-     <input id="password-login" class="input-login line" type="password" placeholder="Contraseña">
+     <input id="email-login" class="input-login line" type="email" placeholder="Correo Electrónico" required>
+     <input id="password-login" class="input-login line" type="password" placeholder="Contraseña" required>
      <button id="button-login" class="input-login send">Iniciar sesión</button>
     </form>
     <div class="text-login">
@@ -32,6 +32,7 @@ export const login = `
 document.addEventListener("click", (e) =>{
 if(e.target.matches("#button-login")){
   console.log("Estas en Home");
+  validarEmail();
   logIn();
   e.preventDefault();
 }  

@@ -13,17 +13,23 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+export function validarEmail(valor) {
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(valor)){
+   alert("La dirección de email " + valor + " es correcta.");
+  } else {
+   alert("La dirección de email es incorrecta.");
+  }
+}
 
 export function createUser(){
     let email = document.getElementById("email-register").value;
     let password = document.getElementById("password-register").value;
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then( (res) => {
-        //console.log('sign in', res);
+        //onNavigate("/home");
         alert("Se registro correctamente"); 
       }).catch( (err) => {
-        //console.log('error', err);
-        
+        //onNavigate("/register");
         alert("Ocurrio un error"); 
       })
 }
