@@ -1,7 +1,7 @@
 * {
   padding: 0px;
   margin: 0px;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 body {
   background-color: #f8f4f3;
@@ -239,6 +239,14 @@ body {
   }
 }
 @media only screen and (max-width: 360px) {
+  #home-desktop{
+    display: none;
+  }
+  /* #home-mobile{
+    display: block;
+  }
+   */
+
   /*My profile*/
   .container-me {
     display: flex;
@@ -456,7 +464,15 @@ body {
   }
 }
 
+/*-------Desktop-------*/
+
 @media only screen and (max-width: 1920px) {
+  #home-mobile{
+    display: none;
+  }
+  /* #home-desktop{
+    display: block;
+  } */
   /*My profile Desktop*/
   .principal-container {
     display: flex;
@@ -545,6 +561,7 @@ body {
   .nav-desktop a:hover {
     color: #f8f4f3;
   }
+
   .img-menu-desktop {
     width: 100%;
   }
@@ -685,7 +702,6 @@ body {
     padding: 5px;
     margin-left: 2%;
     overflow-y: scroll;
-    overflow: hidden;
     line-height: 95%;
   }
   .counter-comments-desktop {

@@ -1,4 +1,5 @@
-import { createUser } from './configFirebase.js';
+import { createUser, validarEmail } from './configFirebase.js';
+import { onNavigate } from './routes.js';
 
 // export const register = `
 // <div class='div-register'>
@@ -42,6 +43,7 @@ export const register = `
 document.addEventListener('click', (e) => {
   if (e.target.matches('#btn-register')) {
     console.log('Estas en Home');
+    //validarEmail();
     createUser();
     onNavigate('/home');
   }

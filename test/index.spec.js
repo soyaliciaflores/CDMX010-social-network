@@ -7,17 +7,17 @@
 //   });
 // });
 
-import { login } from "../src/login.js"
+import { login } from '../src/login.js';
 
 describe('Uso de DOM', () => {
   const renderizado = login();
   it('Aseguraros que existe un BOTON LOGIN en el DOM', () => {
-    expect(renderizado.outerHTML).toBe(`<button id="button-login" class="input-login send">Iniciar sesión</button>`);
+    expect(renderizado.outerHTML).toBe(`<button id='button-login' class='input-login send'>Iniciar sesión</button>`);
   });
 
-  /*it('Ya es vierness', () => {
-    const boton = renderizado.querySelector('.botoncito');
-    boton.click();
-    expect(renderizado.outerHTML).toBe(`<div><button class="botoncito">haz click</button><p>Ya llegue</p></div>`);
-  });*/
+  // it('Ya es vierness', () => {
+  //   const boton = renderizado.querySelector('.botoncito');
+  //   boton.click();
+  //   expect(renderizado.outerHTML).toBe(`<div><button class='botoncito'>haz click</button><p>Ya llegue</p></div>`);
+  // });
 });
