@@ -32,7 +32,7 @@ export function createUser() {
       alert('Se registro correctamente');
     })
     .catch((err) => {
-      //onNavigate('/register');
+      onNavigate('/register');
       alert('Ocurrio un error');
     });
 }
