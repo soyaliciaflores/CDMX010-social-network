@@ -32,7 +32,7 @@ export function createUser() {
       alert('Se registro correctamente');
     })
     .catch((err) => {
-      //onNavigate('/register');
+      onNavigate('/register');
       alert('Ocurrio un error');
     });
 }
@@ -60,7 +60,7 @@ export function authGoogle() {
     .signInWithPopup(providerGoogle)
     .then((res) => {
       console.log(res);
-      //onNavigate('/home');
+      onNavigate('/home');
     })
     .catch((err) => {
       alert(err);
