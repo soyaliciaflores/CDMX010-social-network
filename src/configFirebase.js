@@ -60,7 +60,7 @@ export function authGoogle() {
     .signInWithPopup(providerGoogle)
     .then((res) => {
       console.log(res);
-      //onNavigate('/home');
+      onNavigate('/home');
     })
     .catch((err) => {
       alert(err);
