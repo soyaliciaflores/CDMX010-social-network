@@ -1,3 +1,5 @@
+import { dataBase } from './configFirebase.js'
+
 export const me = `
 <div id='me-mobile'>
  <header class='container-home-head'>
@@ -14,12 +16,12 @@ export const me = `
              <img id='img-profile' src='../assets/withoutProfile.png'>
              <h3 id='name-user'> </h3>
          </div>
-         <form class='my-posts'>
-             <input class='input-post' placeholder='Compartir algo'>
+         <form class='my-posts' id='my-posts-mobile'>
+             <input id='input-post-mobile' class='input-post' placeholder='Compartir algo'>
              <div class='icons-myPosts'>
                  <img class='here-icon icons-posts' src='../assets/here-icon.png'>
                  <img class='img-icon icons-posts' src='../assets/image-icon.png'>
-                <button id='send-icon' class='btn-icons'> <img class='send-icon icons-posts' src='../assets/send-icon.png'></button>
+                <button id='send-icon-mobile' class='btn-icons'> <img class='send-icon icons-posts' src='../assets/send-icon.png'></button>
              </div>
          </form>
      <div class='container-img'> 
@@ -37,11 +39,9 @@ export const me = `
              <button class='btn-icons'> <img class='icons-posts' src='../assets/favorite-icon.png'> </button>
          </div>
      </div>
+     <section class='section-posts' id='section-post-mobile'>
+     </section>
      <section class='section-posts'>
-         <div class='myPost'>
-         <p>Este es un comentario de mi post acerca de mi experiencia con algunas cafeterías de la ciudad en donde vivio.
-         Mi lugar favorito para probar café en la cafetería Kayrom, que se encuentra a unos paso del centro historico</p>
-         </div>
          <div class='div-comments'>
              <img class='photo-friend' src='../assets/withoutProfile.png'>
              <div class='first-comment'>
@@ -109,12 +109,12 @@ export const me = `
              <img id='img-profile-desktop' src='../assets/withoutProfile.png'>
              <h3 id='name-user'> </h3>
          </div>
-         <form class='my-posts-desktop'>
-             <input class='input-post-desktop' placeholder='Compartir algo'>
+         <form class='my-posts-desktop' id='my-posts-desktop'>
+             <input id='input-post-desktop' class='input-post-desktop' placeholder='Compartir algo'>
              <div class='icons-myPosts-desktop'>
                  <img class='here-icon-desktop icons-posts-desktop' src='../assets/here-icon.png'>
                  <img class='img-icon-desktop icons-posts-desktop' src='../assets/image-icon.png'>
-                <button id='send-icon' class='btn-icons-desktop'> <img class='send-icon-desktop icons-posts-desktop' src='../assets/send-icon.png'></button>
+                <button id='send-icon-desktop' class='btn-icons-desktop'> <img class='send-icon-desktop icons-posts-desktop' src='../assets/send-icon.png'></button>
              </div>
          </form>
      <div class='container-img-desktop'>
@@ -168,3 +168,84 @@ export const me = `
  </main>
 </div>
 `;
+
+//--------Mobile---------//
+
+let editStatus = false;
+let idMob = '';
+
+const savePost = (inputPostMob) =>{
+    dataBase.collection('posts').doc().set({
+        inputPostMob
+    })
+}
+
+const getPost = (id) => dataBase.collection('posts').doc(id).get();
+const onGetPosts = (callback) => dataBase.collection('posts').onSnapshot(callback);
+const deletePost = id => dataBase.collection('posts').doc(id).delete();
+const updatePost = (id, updatedPost) => dataBase.collection('posts').doc(id).update(updatedPost);
+
+document.addEventListener('DOMContentLoaded', async (e)=>{
+    const sectionPostMob = document.getElementById('section-post-mobile');
+    onGetPosts ((querySnapshot) => {
+        sectionPostMob.innerHTML = '';
+        querySnapshot.forEach(doc => {
+        const publicationMob = doc.data();
+        publicationMob.id = doc.id;
+        sectionPostMob.innerHTML += `<div class='myPost'>
+            <p>${publicationMob.inputPostMob}</p>
+        </div>
+        <div class='icon-right'>
+            <button class='btn-icons icon-trash-mobile'><img data-id='${publicationMob.id}' class='icons-posts' src='../assets/trash-icon.png'></button>
+            <button class='btn-icons icon-edit-mobile'> <img data-id='${publicationMob.id}' class='icons-posts' src='../assets/write-icon.png'> </button>
+        </div>
+        `
+        const btnsTrashMob = document.querySelectorAll('.icon-trash-mobile');
+        btnsTrashMob.forEach(btn => {
+            btn.addEventListener('click', async(e) => {
+                await deletePost(e.target.dataset.id);
+            })
+        })  
+        const myPostMob = document.getElementById('my-posts-mobile');
+        const btnsEditMob = document.querySelectorAll('.icon-edit-mobile');
+        btnsEditMob.forEach(btn => {
+            btn.addEventListener('click', async (e) => {
+                const docMob = await getPost(e.target.dataset.id);
+                const postMob = docMob.data();
+                editStatus = true;
+                idMob = docMob.id;
+                myPostMob['input-post-mobile'].value = postMob.inputPostMob; 
+                myPostMob['send-icon-mobile'].innerHTML = ` 
+                <button class='btn-icons icon-edit-mobile'> <img class='icons-posts' src='../assets/write-icon.png'> </button>
+                `               
+            })
+        })
+    });
+    }) 
+})
+
+document.addEventListener('submit', async (e) => {
+    if (e.target.matches('#my-posts-mobile')) {
+        const myPostMob = document.getElementById('my-posts-mobile');
+        e.preventDefault();
+        const inputPostMob = myPostMob['input-post-mobile'];
+        console.log(inputPostMob);
+        if(!editStatus){
+            await savePost(inputPostMob.value);        
+        }else{
+            await updatePost(idMob, {
+                inputPostMob: inputPostMob.value
+            })
+            editStatus = false;
+            idMob = '';
+            myPostMob['send-icon-mobile'].innerHTML = ` 
+            <button id='send-icon-mobile' class='btn-icons'> <img class='send-icon icons-posts' src='../assets/send-icon.png'></button>
+            `
+        }
+        myPostMob.reset();
+        inputPostMob.focus();
+    }
+});
+
+//---------Desktop------------//
+
