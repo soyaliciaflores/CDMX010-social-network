@@ -1,15 +1,15 @@
-// import { verAutenticacion } from './configFirebase.js'
+// import { salir, verAutenticacion} from './configFirebase.js';
 
 export const home = `
 <div id='home-mobile' class='me-mobile'>
- <header class='container-home-head'>
-     <img class='icon-home-head' src='../assets/burger.png' alt='menu'>
-     <img class='logo-home' src='../assets/coffehouseletras-01.png' alt='Logo Coffee House'>
-     <div class='div-search-head'>
-         <img class='icon-home-head' src='../assets/search.png' alt='buscar'>
-     </div>
- </header>
- <main class='container-me-main'>
+    <header class='container-home-head'>
+    
+        <img class='logo-home' src='../assets/coffehouseletras-01.png' alt='Logo Coffee House'>
+        <div class='div-search-head'>
+            <img class='icon-home-head' src='../assets/search.png' alt='buscar'>
+        </div>
+    </header>
+    <main class='container-me-main'>
     <section class='container-posts'>
         <div class='div-photo-profile'>
             <img id='img-profile' src='../assets/withoutProfile.png'>
@@ -35,13 +35,13 @@ export const home = `
         <section class='section-posts-second'>
             <div class='div-comments'>
                 <img class='photo-friend' src='../assets/withoutProfile.png'>
-                <div class="comments-mobile"><p></p></div>
+                <div class='comments-mobile'><p></p></div>
             </div>
             <div class='div-comments'>
                 <img class='photo-friend' src='../assets/withoutProfile.png'>
-                <div class="comments-mobile"><p></p></div>
+                <div class='comments-mobile'><p></p></div>
             </div>
-            <div class="container-counter">
+            <div class='container-counter'>
                 <p class='counter-comments'>60 comentarios</p>
                 <form class='form-comments'>
                 <input class='post-comment' placeholder='Comenta algo'>
@@ -50,37 +50,36 @@ export const home = `
             </div>
         </section>
     </section>
- </main>
- <footer class="footer-mobile">
-     <div class='container-navigation'>
-         <img class='icon-home' src='../assets/calendar.png' alt='icon-muro'>
-         <img class='icon-home' src='../assets/friends.png' alt='icon-friends'>
-         <img class='icon-home' src='../assets/popular.png' alt='icon-popular'>
-         <img class='icon-home' src='../assets/me.png' alt='icon-me'>
-     </div>
- </footer>
+    </main>
+    <footer class='footer-mobile'>
+        <div class='container-navigation'>
+            <img  id='calendar' class='icon-home' src='../assets/calendar.png' alt='icon-muro'>
+            <img class='icon-home' src='../assets/friends.png' alt='icon-friends'>
+            <img class='icon-home' src='../assets/popular.png' alt='icon-popular'>
+            <img id='me' class='icon-home' src='../assets/me.png' alt='icon-me'>
+        </div>
+    </footer>
 </div>
 `;
-
 // <div classs='principal-container' id='home-desktop'>
-// <header class='header-desktop'>
-// <div class='logo-desktop'>
-//   <img src='./assets/coffeehousesmall-01.png' alt='Logo'>
-// </div>
-// <div>
-// <div class='container-navigation-desktop'>
-//   <img class='icon-home-desktop' src='../assets/calendar.png' alt='icon-muro' />
-//   <img class='icon-home-desktop' src='../assets/friends.png' alt='icon-friends' />
-//   <img class='icon-home-desktop' src='../assets/popular.png' alt='icon-popular' />
-//   <img class='icon-home-desktop' src='../assets/me.png' alt='icon-me' />
-// </div>
-// </div>
-// <div class='container-search-desktop'>
-//   <form>
-//     <input class='search-desktop' type='text' placeholder='Buscar'/>
-//   </form>
-// </div>
-// </header>
+//     <header class='header-desktop'>
+//         <div class='logo-desktop'>
+//             <img src='./assets/coffeehousesmall-01.png' alt='Logo'>
+//         </div>
+//         <div>
+//             <div class='container-navigation-desktop'>
+//                 <img class='icon-home-desktop' src='../assets/calendar.png' alt='icon-muro' />
+//                 <img class='icon-home-desktop' src='../assets/friends.png' alt='icon-friends' />
+//                 <img class='icon-home-desktop' src='../assets/popular.png' alt='icon-popular' />
+//                 <img class='icon-home-desktop' src='../assets/me.png' alt='icon-me' />
+//             </div>
+//         </div>
+//         <div class='container-search-desktop'>
+//             <form>
+//                 <input class='search-desktop' type='text' placeholder='Buscar'/>
+//             </form>
+//         </div>
+//     </header>
 // <main class='main-desktop'>
 // <div class='menu-desktop'>
 //   <nav class='nav-desktop'>
@@ -108,7 +107,7 @@ export const home = `
 //   </div>
 //   <div class='container-icons-post-desktop'>
 //       <div class='icon-left-desktop'>
-//           <span class='counter-desktop' id='counter'>200</span>   
+//           <span class='counter-desktop' id='counter'>200</span>
 //           <button class='btn-icons-desktop'> <img id='icon-likes' class='icons-posts-desktop' src='../assets/Groupcuplike2.png'> </button>
 //           <button class='btn-icons-desktop'> <img id='icon-comments' class='icons-posts-desktop' src='../assets/comment-icon.png'> </button>
 //       </div>
@@ -151,9 +150,14 @@ export const home = `
 // </aside>
 // </main>
 // </div>
-// `;
 
+// document.addEventListener('click', (e) =>{
+//     if(e.target.matches('.logOut')){
+//         salir();
+//     }
+// })
 
-// window.onload=function(){
-//   verAutenticacion();
+// window.onload = function(){
+//     console.log('aquí estoy');
+//     verAutenticacion();
 // }

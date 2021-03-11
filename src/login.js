@@ -14,7 +14,7 @@ export const login = `
      <button id='button-login' class='input-login send'>Iniciar sesión</button>
     </form>
     <div class='text-login'>
-      <p>¿No tienes una cuenta?</p><br>
+      <p>¿No tienes una cuenta?</p>
       <p>Registrate <button class='input-login send' id='hereRegister'>AQUI</button></p>
       <p><img class='leaves' src='./assets/LeafLF.png' alt='LeafLF'>
        ó

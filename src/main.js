@@ -13,8 +13,3 @@ window.onpopstate = () => {
 
 window.onNavigate = onNavigate;
 
-window.onload=function(){
-  // verAutenticacion();
-}
-
-
