@@ -1,4 +1,4 @@
-import { logIn, authGoogle, authFacebook, validarEmail} from './configFirebase.js';
+import { logIn, authGoogle, authFacebook, validarEmail } from './configFirebase.js';
 import { onNavigate } from './routes.js';
 
 export const login = `
@@ -49,3 +49,9 @@ document.addEventListener('click', (e) => {
     onNavigate('/register');
   }
 });
+
+
+window.onload=function(){
+  verAutenticacion();
+}
+

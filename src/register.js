@@ -31,3 +31,8 @@ document.addEventListener('click', (e) => {
     onNavigate('/');
   }
 });
+
+
+window.onload=function(){
+  verAutenticacion();
+}

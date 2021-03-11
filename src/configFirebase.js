@@ -1,4 +1,7 @@
 // Your web app's Firebase configuration
+
+import { onNavigate } from "./routes.js";
+
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: 'AIzaSyABP0g3UCSzN9JeeJ0Rx70z0E5hBoaCB2w',
@@ -82,3 +85,38 @@ export function authFacebook() {
       alert(err);
     });
 }
+
+
+
+export function salir(){
+  
+  firebase.auth().signOut().then(res =>{
+    //document.location.href='/';
+    onNavigate('/');
+  }).catch(err =>{
+    alert(err);
+  }) 
+}
+
+// export function verAutenticacion(){
+
+//   firebase.auth().onAuthStateChanged(res =>{
+//     if(res==null){
+//       document.getElementById('me-mobile').style.display='none';
+//       document.getElementById('me-desktop').style.display='none';
+//       document.getElementById('home-mobile').style.display='none';
+//       document.getElementById('home-desktop').style.display='none';
+//       document.getElementById('div-register').style.display='inline-block';
+//       document.getElementById('div-login').style.display='inline-block';
+//     }
+//     }else{
+//       document.getElementById('me-mobile').style.display='inline-block';
+//       document.getElementById('me-desktop').style.display='inline-block';
+//       document.getElementById('home-mobile').style.display='inline-block';
+//       document.getElementById('home-desktop').style.display='inline-block';
+//       document.getElementById('div-register').style.display='none';
+//       document.getElementById('div-login').style.display='none';
+//     }
+//   })
+// }
+
