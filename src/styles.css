@@ -18,286 +18,7 @@ body {
   color: black;
   padding: 10px;
 }
-/*-------Desktop-------*/
-@media only screen and (max-width: 1920px) {
-  #home-desktop {
-    display: block;
-  }
-  #home-mobile {
-    display: none;
-  }
-  #me-desktop {
-    display: block;
-  }
-  #me-mobile {
-    display: none;
-  }
-  /*My profile Desktop*/
-  .principal-container {
-    display: flex;
-    flex-wrap: wrap;
-    background-color: #f8f4f3;
-  }
-  .header-desktop {
-    display: flex;
-    align-content: center;
-    width: 100%;
-    height: 10%;
-  }
-  .main-desktop {
-    display: flex;
-    width: 100%;
-  }
-  .logo-desktop {
-    width: 20vw;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .logo-desktop img {
-    width: 12vw;
-  }
-  .container-navigation-desktop {
-    width: 57vw;
-    padding: 10px;
-    margin-top: 18px;
-    background-color: #c69572;
-    display: flex;
-    border: 3px #4e1706 solid;
-    justify-content: space-around;
-  }
-  .icon-home-desktop {
-    height: 25px;
-    display: flex;
-  }
-  .icon-home-desktop:hover {
-    background-color: rgba(255, 225, 204, 0.89);
-  }
-  .container-search-desktop {
-    width: 20vw;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-  .search-desktop {
-    background-color: #4e1706;
-    width: 12vw;
-    height: 30px;
-    padding: 2px;
-    font-size: 18px;
-    font-weight: 500;
-    border-radius: 15px;
-    text-align: center;
-  }
-  .search-desktop::-webkit-input-placeholder {
-    color: white;
-  }
-  .menu-desktop {
-    width: 20vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: space-between;
-  }
-  .nav-desktop {
-    width: 80%;
-  }
-  .nav-desktop ul {
-    border: 3px solid #4e1706;
-    border-top: 1px solid #4e1706;
-    height: 40px;
-    background-color: #c69572;
-    list-style: none;
-    padding: 6px;
-  }
-  .nav-desktop ul:hover {
-    color: #f8f4f3;
-  }
-  .nav-desktop a {
-    text-decoration: none;
-    color: black;
-  }
-  .nav-desktop a:hover {
-    color: #f8f4f3;
-  }
-  .img-menu-desktop {
-    width: 100%;
-  }
-  .img-menu-desktop img {
-    width: 20vw;
-    padding-top: 100%;
-  }
-  .container-me-desktop {
-    width: 60vw;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    background-color: rgba(200, 135, 88, 0.1);
-  }
-  .container-posts-desktop {
-    width: 90%;
-  }
-  .aside-desktop {
-    width: 20vw;
-    /* padding-top: 2%; */
-    background-color: #f8f4f3;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-  }
-  .adds-desktop {
-    display: flex;
-    justify-content: space-around;
-    align-content: center;
-    margin: 0 auto;
-  }
-  .adds-desktop img {
-    width: 80%;
-    height: 33vh;
-    border: 4px solid #4e1706;
-  }
-  .adds-desktop p {
-    padding: 5px;
-  }
-  #img-profile-desktop {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 2px #4e1706 solid;
-    margin: 3%;
-    display: block;
-  }
-  .input-post-desktop {
-    background-color: #dfe1e3;
-    border: 2px #4e1706 solid;
-    width: 99%;
-    height: 35px;
-    padding: 5px;
-    border-radius: 25px;
-    overflow-y: scroll;
-    overflow: hidden;
-    line-height: 95%;
-  }
-  .icons-myPosts-desktop {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    outline: none;
-  }
-  .icons-posts-desktop {
-    width: 20px;
-    height: 20px;
-    margin: 5px;
-  }
-  .btn-icons-desktop {
-    background-color: transparent;
-    outline: none;
-    border: none;
-  }
-  .container-img-desktop {
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-    width: 100%;
-  }
-  .img-post-desktop {
-    width: 30%;
-  }
-  .img-post-desktop img {
-    width: 100%;
-    border: 4px solid #4e1706;
-  }
-  .container-icons-post-desktop {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-  .section-posts-desktop {
-    display: flex;
-    align-content: space-between;
-    flex-direction: column;
-    padding-bottom: 25px;
-  }
-  .myPost-desktop {
-    width: auto;
-    height: 80px;
-    background-color: #a8babe;
-    border: 2px solid #4e1706;
-    border-radius: 16px 0px;
-    padding: 2%;
-    overflow-y: scroll;
-    overflow: hidden;
-    margin-bottom: 2%;
-  }
-  .div-comments-desktop {
-    display: flex;
-    align-content: flex-start;
-  }
-  .photo-friend-desktop {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 1px #4e1706 solid;
-    display: block;
-  }
-  .first-comment-desktop {
-    background-color: #dfe1e3;
-    border: 2px #4e1706 solid;
-    width: 90%;
-    height: 60px;
-    border-radius: 16px 0px;
-    padding: 5px;
-    margin-left: 2%;
-    margin-bottom: 2%;
-    overflow-y: scroll;
-    overflow: hidden;
-    line-height: 95%;
-  }
-  .second-comment-desktop {
-    background-color: #dfe1e3;
-    border: 2px #4e1706 solid;
-    width: 90%;
-    height: 60px;
-    border-radius: 16px 0px;
-    padding: 5px;
-    margin-left: 2%;
-    overflow-y: scroll;
-    overflow: hidden;
-    line-height: 95%;
-  }
-  .counter-comments-desktop {
-    margin: 1%;
-    padding: 0px 0px 4px;
-  }
-  .form-comments-desktop {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .post-comment-desktop {
-    background-color: #dfe1e3;
-    border: 2px #4e1706 solid;
-    width: 90%;
-    height: 40px;
-    border-radius: 25px;
-    padding: 1%;
-    overflow-y: scroll;
-    overflow: hidden;
-  }
-  .send-submit-desktop {
-    height: 35px;
-    padding: 5px;
-    display: flex;
-    justify-content: flex-end;
-    background-color: #c69572;
-    margin-left: 5px;
-    border-radius: 10px;
-    font-weight: 700;
-  }
-}
+
 /*  Laptop */
 @media only screen and (max-width: 1920px) {
   .div-login {
@@ -569,6 +290,11 @@ body {
     border: 1px solid #4e1706;
     margin: 3%;
   }
+  .alerta {
+    width: 200px;
+    height: 200px;
+    background-color: chartreuse;
+  }
   .my-posts {
     width: 80vh;
   }
@@ -660,6 +386,17 @@ body {
     background-color: #dfe1e3;
     border: 2px solid #4e1706;
     border-radius: 15px;
+  }
+  .counter {
+    padding-left: 10px;
+    color: #4e1706;
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .icon-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
   }
   .container-counter {
     width: 80vw;

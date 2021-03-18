@@ -9,15 +9,15 @@ export const login = `
   <div class='container-login'>
     <h2> Inicia sesión </h2><br>
     <form class='form-login'>
-     <input id='email-login' class='input-login line' type='email' placeholder='Correo Electrónico' required>
-     <input id='password-login' class='input-login line' type='password' placeholder='Contraseña' required>
-     <button id='button-login' class='input-login send'>Iniciar sesión</button>
+      <input id='email-login' class='input-login line' type='email' placeholder='Correo Electrónico' required>
+      <input id='password-login' class='input-login line' type='password' placeholder='Contraseña' required>
+      <button id='button-login' class='input-login send'>Iniciar sesión</button>
     </form>
     <div class='text-login'>
       <p>¿No tienes una cuenta?</p>
       <p>Registrate <button class='input-login send' id='hereRegister'>AQUI</button></p>
       <p><img class='leaves' src='./assets/LeafLF.png' alt='LeafLF'>
-       ó
+        ó
       <img class='leaves' src='./assets/LeafRG.png' alt='LeafRG'></p>
       <p>Inicia Sesión con</p>
     </div>

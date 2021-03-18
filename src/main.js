@@ -12,4 +12,3 @@ window.onpopstate = () => {
 };
 
 window.onNavigate = onNavigate;
-

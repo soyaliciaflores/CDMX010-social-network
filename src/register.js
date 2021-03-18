@@ -9,12 +9,12 @@ export const register = `
   <div class='container-register'>
     <h2 class='titulo'> Registrate </h2>
     <form class='container-register'>
-     <input id='email-register' class='input-login line-register' type='email' placeholder='Correo Electrónico'>
-     <input id='password-register' class='input-login line-register' type='password' placeholder='Contraseña'>
-     <button id='btn-register' class='input-login send'>Registrate</button>
-   </form>
-   <button id='backToLogin' class='input-login send back'> Regresar </button>
-   <p>Al registrarte aceptas términos y condiciones de privacidad</p>
+      <input id='email-register' class='input-login line-register' type='email' placeholder='Correo Electrónico'>
+      <input id='password-register' class='input-login line-register' type='password' placeholder='Contraseña'>
+      <button id='btn-register' class='input-login send'>Registrate</button>
+    </form>
+    <button id='backToLogin' class='input-login send back'> Regresar </button>
+    <p>Al registrarte aceptas términos y condiciones de privacidad</p>
   </div>
 </div>
 `;
