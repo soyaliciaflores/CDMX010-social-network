@@ -1,13 +1,10 @@
-import { home } from './home.js';
-import { login } from './login.js';
-import { meVista } from './me.js';
-import { register } from './register.js';
+let routes = {};
 
-export const routes = {
-  '/home': home,
-  '/register': register,
-  '/': login,
-  '/me': meVista,
+let firebase = null;
+
+export const loadRoutesAndFirebase = (routeFromMain, firebaseFromMain) => {
+  routes = routeFromMain;
+  firebase = firebaseFromMain;
 };
 
 export const rootDiv = document.getElementById('root');
@@ -18,6 +15,9 @@ export const onNavigate = (pathname) => {
   if (pathname === '/me') {
     const init = routes[pathname];
     init(rootDiv);
+  } else if (pathname === 'login') {
+    const init = routes[pathname];
+    init(rootDiv, firebase);
   } else {
     rootDiv.innerHTML = routes[pathname];
   }

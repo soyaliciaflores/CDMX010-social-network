@@ -4,10 +4,33 @@ import { myFunction } from './lib/index.js';
 
 myFunction();
 */
-import { routes, rootDiv, onNavigate } from './routes.js';
+import { rootDiv, onNavigate, loadRoutesAndFirebase } from './routes.js';
+import * as firebaseClient from './configFirebase.js';
+import { home } from './home.js';
+import { login } from './login.js';
+import { meVista } from './me.js';
+import { register } from './register.js';
+
+const routes = {
+  '/home': home,
+  '/register': register,
+  '/': login,
+  '/me': meVista,
+};
+
+loadRoutesAndFirebase(routes, firebaseClient);
 
 window.onpopstate = () => {
-  rootDiv.innerHTML = routes[window.location.pathname];
+  const pathname = window.location.pathname;
+  if (pathname === '/me') {
+    const init = routes[pathname];
+    init(rootDiv);
+  } else if (pathname === 'login') {
+    const init = routes[pathname];
+    init(rootDiv, firebase);
+  } else {
+    rootDiv.innerHTML = routes[pathname];
+  }
 };
 
 window.onNavigate = onNavigate;

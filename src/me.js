@@ -1,4 +1,6 @@
-import { dataBase, salir, activeUser, verAutenticacion } from './configFirebase.js';
+import {
+  dataBase, salir, activeUser, verAutenticacion,
+} from './configFirebase.js';
 import { onNavigate } from './routes.js';
 
 export const me = `
