@@ -302,6 +302,11 @@ body {
     border: 1px solid #4e1706;
     margin: 3%;
   }
+  .alerta {
+    width: 200px;
+    height: 200px;
+    background-color: chartreuse;
+  }
   .my-posts {
     width: 80vh;
   }
@@ -393,6 +398,17 @@ body {
     background-color: #dfe1e3;
     border: 2px solid #4e1706;
     border-radius: 15px;
+  }
+  .counter {
+    padding-left: 10px;
+    color: #4e1706;
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .icon-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
   }
   .container-counter {
     width: 80vw;

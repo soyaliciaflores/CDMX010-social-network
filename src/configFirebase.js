@@ -15,10 +15,16 @@ firebase.initializeApp(firebaseConfig);
 
 export const dataBase = firebase.firestore();
 
+export function activeUser() {
+  return firebase.auth().currentUser;
+}
+
 export function validarEmail(valor) {
   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(valor)) {
-    alert('La dirección de email ' + valor + ' es correcta.');
+    // eslint-disable-next-line no-alert
+    alert(`La dirección de email ${valor} es correcta.`);
   } else {
+    // eslint-disable-next-line no-alert
     alert('La dirección de email es incorrecta.');
   }
 }
@@ -29,34 +35,30 @@ export function createUser() {
   firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((res) => {
       //onNavigate('/home');
-      alert('Se registro correctamente');
+      alert('Se registro correctamente', res);
     })
     .catch((err) => {
       onNavigate('/register');
-      alert('Ocurrio un error');
+      alert('Ocurrio un error', err);
     });
 }
 
 export function logIn() {
-  let emailLogin = document.getElementById('email-login').value;
-  let passwordLogin = document.getElementById('password-login').value;
+  const emailLogin = document.getElementById('email-login').value;
+  const passwordLogin = document.getElementById('password-login').value;
   firebase.auth().signInWithEmailAndPassword(emailLogin, passwordLogin)
     .then((res) => {
-      console.log(emailLogin);
       onNavigate('/home');
     })
     .catch((err) => {
-      //console.log('error', err);
-      alert('Ocurrio un error');
+      alert('Ocurrio el error:', err);
       onNavigate('/');
     });
 }
 
 export function authGoogle() {
   const providerGoogle = new firebase.auth.GoogleAuthProvider();
-  firebase
-    .auth()
-    .signInWithPopup(providerGoogle)
+  firebase.auth().signInWithPopup(providerGoogle)
     .then((res) => {
       console.log(res);
       onNavigate('/home');
@@ -68,9 +70,7 @@ export function authGoogle() {
 
 export function authFacebook() {
   const providerFacebook = new firebase.auth.FacebookAuthProvider();
-  firebase
-    .auth()
-    .signInWithPopup(providerFacebook)
+  firebase.auth().signInWithPopup(providerFacebook)
     .then((res) => {
       console.log(res);
       onNavigate('/home');
@@ -81,16 +81,12 @@ export function authFacebook() {
 }
 
 export function salir() {
-  firebase
-    .auth()
-    .signOut()
-    .then((res) => {
-      //document.location.href='/';
-      onNavigate('/');
-    })
-    .catch((err) => {
-      alert(err);
-    });
+  firebase.auth().signOut().then((res) => {
+    console.log(res);
+    onNavigate('/');
+  }).catch((err) => {
+    alert(err);
+  });
 }
 
 export function verAutenticacion() {
