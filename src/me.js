@@ -40,7 +40,7 @@ export const me = `
         <div class='container-icons-post'>
             <div class='icon-left'>
                 <span class='counter' id='counter'>200</span>
-                <button class='btn-icons'> <img id='icon-likes' class='icons-posts' src='../assets/Groupcuplike2.png'> </button>
+                <button id='button-likes' class='btn-icons'> <img id='icon-likes' class='icons-posts' src='../assets/Groupcuplike2.png'> </button>
                 <button class='btn-icons'> <img id='icon-comments' class='icons-posts' src='../assets/comment-icon.png'> </button>
             </div>
             <div class='icon-right'>
@@ -188,8 +188,13 @@ let idMob = '';
 const savePost = (inputPostMob) => {
   dataBase.collection('posts').doc().set({
     inputPostMob,
+    likes,
+    email //alamcenar el mail, uid, nombre, el length es la cantidad de likes, 
+    //if mail existe  en el array entonces ya no puedo dar click
   });
 };
+
+console.log(savepost)
 
 const getPost = (id) => dataBase.collection('posts').doc(id).get();
 const onGetPosts = (callback) => dataBase.collection('posts').onSnapshot(callback);
@@ -391,9 +396,13 @@ document.addEventListener('click', (e) => {
     showMenu();
     e.preventDefault();
   }
+  if(e.target.matches('#icon-likes')){
+      console.log('me gusta');
+  }
 });
 
 window.onload = function(){
     console.log('aquí estoy');
     verAutenticacion();
 }
+
