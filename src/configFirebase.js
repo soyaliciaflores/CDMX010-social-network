@@ -13,7 +13,7 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-export const dataBase = firebase.firestore();
+const dataBase = firebase.firestore();
 
 export function activeUser() {
   return firebase.auth().currentUser;
@@ -46,63 +46,33 @@ export function createUser() {
 export function logIn() {
   const emailLogin = document.getElementById('email-login').value;
   const passwordLogin = document.getElementById('password-login').value;
-  firebase.auth().signInWithEmailAndPassword(emailLogin, passwordLogin)
-    .then((res) => {
-      onNavigate('/home');
-    })
-    .catch((err) => {
-      alert('Ocurrio el error:', err);
-      onNavigate('/');
-    });
+  return firebase.auth().signInWithEmailAndPassword(emailLogin, passwordLogin)
 }
 
 export function authGoogle() {
   const providerGoogle = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().signInWithPopup(providerGoogle)
-    .then((res) => {
-      console.log(res);
-      onNavigate('/home');
-    })
-    .catch((err) => {
-      alert(err);
-    });
+  return firebase.auth().signInWithPopup(providerGoogle)
 }
 
 export function authFacebook() {
   const providerFacebook = new firebase.auth.FacebookAuthProvider();
-  firebase.auth().signInWithPopup(providerFacebook)
-    .then((res) => {
-      console.log(res);
-      onNavigate('/home');
-    })
-    .catch((err) => {
-      alert(err);
-    });
+  return firebase.auth().signInWithPopup(providerFacebook)
 }
 
 export function salir() {
-  firebase.auth().signOut().then((res) => {
-    console.log(res);
-    onNavigate('/');
-  }).catch((err) => {
-    alert(err);
-  });
+  return firebase.auth().signOut();
 }
 
+
+export const getPost = (id) => dataBase.collection('posts').doc(id).get();
+export const onGetPosts = (callback) => dataBase.collection('posts').onSnapshot(callback);
+export const deletePost = (id) => dataBase.collection('posts').doc(id).delete();
+export const updatePost = (id, updatedPost) => dataBase.collection('posts').doc(id).update(updatedPost);
+
+export const savePost = (inputPostMob, likes) => {
+  return dataBase.collection('posts').doc().set({ inputPostMob,likes });
+};
+
 export function verAutenticacion() {
-  firebase.auth().onAuthStateChanged((res) => {
-    if (res == null) {
-      console.log('si es null');
-      document.getElementById('me-mobile').style.display = 'none';
-      document.getElementById('home-mobile').style.display = 'none';
-      document.getElementById('div-register').style.display = 'inline-block';
-      document.getElementById('div-login').style.display = 'inline-block';
-    } else {
-      console.log('no es null');
-      document.getElementById('me-mobile').style.display = 'inline-block';
-      document.getElementById('home-mobile').style.display = 'inline-block';
-      document.getElementById('div-register').style.display = 'none';
-      document.getElementById('div-login').style.display = 'none';
-    }
-  });
+  
 }

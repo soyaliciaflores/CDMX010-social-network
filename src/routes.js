@@ -1,10 +1,10 @@
 let routes = {};
 
-let firebase = null;
+let firebaseClient = null;
 
 export const loadRoutesAndFirebase = (routeFromMain, firebaseFromMain) => {
   routes = routeFromMain;
-  firebase = firebaseFromMain;
+  firebaseClient = firebaseFromMain;
 };
 
 export const rootDiv = document.getElementById('root');
@@ -12,15 +12,7 @@ export const rootDiv = document.getElementById('root');
 
 export const onNavigate = (pathname) => {
   window.history.pushState({}, pathname, window.location.origin + pathname);
-  if (pathname === '/me') {
-    const init = routes[pathname];
-    init(rootDiv);
-  } else if (pathname === 'login') {
-    const init = routes[pathname];
-    init(rootDiv, firebase);
-  } else {
-    rootDiv.innerHTML = routes[pathname];
-  }
+  const component = routes[pathname];
+  component(rootDiv, firebaseClient);
 };
 
-onNavigate(window.location.pathname);
