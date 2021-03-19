@@ -1,7 +1,7 @@
 // import { logIn, authGoogle, authFacebook, validarEmail} from './configFirebase.js';
 import { onNavigate } from './routes.js';
 
-export const login = (container, firebase) => {
+export const login = (container, firebaseClient) => {
   const html = `
   <div class='div-login'>
     <div class='container-image'>
@@ -36,18 +36,21 @@ export const login = (container, firebase) => {
   document.addEventListener('click', (e) => {
     if (e.target.matches('#button-login')) {
       console.log('Estas en Home');
-      firebase.validarEmail();
-      firebase.logIn();
+      firebaseClient.validarEmail();
+      firebaseClient.logIn();
       e.preventDefault();
     }
+
     if (e.target.matches('#icon-google')) {
       console.log('Estas en Home');
-      firebase.authGoogle();
+      firebaseClient.authGoogle();
     }
+
     if (e.target.matches('#icon-facebook')) {
       console.log('Estas en Home');
-      firebase.authFacebook();
+      firebaseClient.authFacebook();
     }
+
     if (e.target.matches('#hereRegister')) {
       console.log('Estas en Register');
       onNavigate('/register');
