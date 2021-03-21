@@ -70,9 +70,5 @@ export const deletePost = (id) => dataBase.collection('posts').doc(id).delete();
 export const updatePost = (id, updatedPost) => dataBase.collection('posts').doc(id).update(updatedPost);
 
 export const savePost = (inputPostMob, likes) => {
-  return dataBase.collection('posts').doc().set({ inputPostMob,likes });
+  return dataBase.collection('posts').doc().set({ inputPostMob, likes });
 };
-
-export function verAutenticacion() {
-  
-}

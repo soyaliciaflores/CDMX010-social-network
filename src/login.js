@@ -35,24 +35,20 @@ export const login = (container, firebaseClient) => {
 
   document.addEventListener('click', (e) => {
     if (e.target.matches('#button-login')) {
-      console.log('Estas en Home');
       firebaseClient.validarEmail();
       firebaseClient.logIn();
       e.preventDefault();
     }
 
     if (e.target.matches('#icon-google')) {
-      console.log('Estas en Home');
       firebaseClient.authGoogle();
     }
 
     if (e.target.matches('#icon-facebook')) {
-      console.log('Estas en Home');
       firebaseClient.authFacebook();
     }
 
     if (e.target.matches('#hereRegister')) {
-      console.log('Estas en Register');
       onNavigate('/register');
     }
   });

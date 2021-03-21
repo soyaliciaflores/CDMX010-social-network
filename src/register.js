@@ -3,18 +3,16 @@ import { onNavigate } from './routes.js';
 const registerEvents = (firebaseClient) => {
   document.addEventListener('click', (e) => {
     if (e.target.matches('#btn-register')) {
-      //validarEmail();
       firebaseClient.createUser();
       onNavigate('/home');
     }
-    
     if (e.target.matches('#backToLogin')) {
       onNavigate('/');
     }
   });
 }
 
-export const register =  (container, firebaseClient) => {
+export const register = (container, firebaseClient) => {
   const html = `
   <div class='div-register'>
     <div class='container-image'>

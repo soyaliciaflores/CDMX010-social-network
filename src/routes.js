@@ -8,7 +8,6 @@ export const loadRoutesAndFirebase = (routeFromMain, firebaseFromMain) => {
 };
 
 export const rootDiv = document.getElementById('root');
-// rootDiv.innerHTML = routes[window.location.pathname];
 
 export const onNavigate = (pathname) => {
   window.history.pushState({}, pathname, window.location.origin + pathname);

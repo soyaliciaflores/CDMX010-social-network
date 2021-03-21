@@ -30,7 +30,7 @@ export const home = (container, firebaseClient) => {
             <div class='container-icons-post'>
                 <div class='icon-left'>
                     <span class='counter' id='counter'>200</span>
-                    <button class='btn-icons'> <img id='icon-likes' class='icons-posts' src='../assets/Groupcuplike2.png'> </button>
+                    <button class='btn-icons'> <img id='icon-likes' class='icons-posts' src='../assets/cup-dislike.png'> </button>
                     <button class='btn-icons'> <img id='icon-comments' class='icons-posts' src='../assets/comment-icon.png'> </button>
                 </div>
                 <div class='icon-right'>
@@ -71,7 +71,7 @@ export const home = (container, firebaseClient) => {
     </div>
     `;
 
-    container.innerHTML =  html;
+    container.innerHTML = html;
 
     function showMenu() {
         const menu = document.getElementById('nav-mobile');
@@ -85,10 +85,8 @@ export const home = (container, firebaseClient) => {
     }
 
     const logoutLink = document.getElementById('logOut');
-    console.log(logoutLink)
     logoutLink.addEventListener('click', (e) => {
         e.preventDefault();
-        console.log('saliendo')
         firebaseClient.salir();
     })
 
