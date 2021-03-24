@@ -22,22 +22,11 @@ export function activeUser() {
   return firebase.auth().currentUser;
 }
 
-export function validarEmail(valor) {
-  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(valor)) {
-    // eslint-disable-next-line no-alert
-    alert(`La dirección de email ${valor} es correcta.`);
-  } else {
-    // eslint-disable-next-line no-alert
-    alert('La dirección de email es incorrecta.');
-  }
-}
-
 export function createUser() {
   const email = document.getElementById('email-register').value;
   const password = document.getElementById('password-register').value;
   firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((res) => {
-      //onNavigate('/home');
       alert('Se registro correctamente', res);
     })
     .catch((err) => {
@@ -62,10 +51,18 @@ export function authFacebook() {
   return firebase.auth().signInWithPopup(providerFacebook)
 }
 
+
+export function validarEmail(valor) {
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(valor)) {
+    alert(`La dirección de email ${valor} es correcta.`);
+  } else {
+    alert('La dirección de email es incorrecta.');
+  }
+}
+
 export function salir() {
   return firebase.auth().signOut();
 }
-
 
 export const getPost = (id) => dataBase.collection('posts').doc(id).get();
 export const onGetPosts = (callback) => dataBase.collection('posts').onSnapshot(callback);
