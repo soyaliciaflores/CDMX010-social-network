@@ -1,22 +1,6 @@
-import { dataBase, salir, activeUser, verAutenticacion } from './configFirebase.js';
 import { onNavigate } from './routes.js';
-
 export const me = `
 <div id='me-mobile' class='me-mobile'>
-<<<<<<< HEAD
- <header class='container-home-head'>
-<<<<<<< HEAD
-     <button id='btn-burger'><img class='icon-home' src='../assets/burger.png' alt='menu'></button>
-     <nav class='nav-mobile disabled-menu' id='nav-mobile'>
-       <ul><li>Angela Gomez</li></ul>
-       <ul><li>Ver tu perfil</li></ul>
-            <ul><li>Guardado</li></ul>
-            <ul><li>Cafeterias cerca</li></ul>
-            <ul><li>Ayuda y soporte técnico</li></ul>
-            <ul><li>Configuracion</li></ul>
-            <ul><li><a class="logOut">Cerrar sesión</a></li></ul>
-        </nav>
-=======
   <header class='container-home-head'>
     <button class='btn-burger burger'><hr><hr><hr></button>
     <nav class='nav-mobile disabled-menu' id='nav-mobile'>
@@ -27,21 +11,12 @@ export const me = `
       <ul><li>Cafeterias cerca</li></ul>
       <ul><li>Ayuda y soporte técnico</li></ul>
       <ul><li>Configuracion</li></ul>
-      <ul><li><a class='logOut'>Cerrar sesión</a></li></ul>
+      <ul><li><a class='logOut' id='salir'>Cerrar sesión</a></li></ul>
     </nav>
->>>>>>> 87613ff14bc0d5672e0871ea7b48ab68018c77df
     <img id='logo'class='logo-home' src='../assets/coffehouseletras-01.png' alt='Logo Coffee House'>
     <div class='div-search-head'>
       <img class='icon-home-head' src='../assets/search.png' alt='buscar'>
     </div>
-<<<<<<< HEAD
->>>>>>> c9c98db16fec58e948082c19aa633650979425f0
- </header>
- <main class='container-me-main'>
-    <section class='container-posts'>
-        <div class='div-photo-profile'>
-            <h3 id='name-user'> </h3>
-=======
   </header>
   <main class='container-me-main'>
     <section class='container-posts'>
@@ -55,7 +30,6 @@ export const me = `
           <img class='here-icon icons-posts' src='../assets/here-icon.png'>
           <img class='img-icon icons-posts' src='../assets/image-icon.png'>
           <button id='send-icon-mobile' class='btn-icons'> <img class='send-icon icons-posts' src='../assets/send-icon.png'></button>
->>>>>>> 87613ff14bc0d5672e0871ea7b48ab68018c77df
         </div>
       </form>
       <div class='container-img'>
@@ -67,19 +41,6 @@ export const me = `
           <button class='btn-icons'> <img id='icon-likes' class='icons-posts' src='../assets/cup-dislike.png'> </button>
           <button class='btn-icons'> <img id='icon-comments' class='icons-posts' src='../assets/comment-icon.png'> </button>
         </div>
-<<<<<<< HEAD
-        <div class='container-icons-post'>
-            <div class='icon-left'>
-                <span class='counter' id='counter'>200</span>
-                <button id='button-likes' class='btn-icons'> <img id='icon-likes' class='icons-posts' src='../assets/Groupcuplike2.png'> </button>
-                <button class='btn-icons'> <img id='icon-comments' class='icons-posts' src='../assets/comment-icon.png'> </button>
-            </div>
-            <div class='icon-right'>
-                <button class='btn-icons'> <img id='icon-trash' class='icons-posts' src='../assets/trash-icon.png'> </button>
-                <button class='btn-icons'> <img id='icon-edit' class='icons-posts' src='../assets/write-icon.png'> </button>
-                <button class='btn-icons'> <img class='icons-posts' src='../assets/favorite-icon.png'> </button>
-            </div>
-=======
         <div class='icon-right'>
           <button class='btn-icons'> <img id='icon-trash' class='icons-posts' src='../assets/trash-icon.png'> </button>
           <button class='btn-icons'> <img id='icon-edit' class='icons-posts' src='../assets/write-icon.png'> </button>
@@ -102,7 +63,6 @@ export const me = `
             <input class='post-comment' placeholder='Comenta algo'>
             <button id='send-comment' class='btn-icons'> <img class='icons-posts' src='../assets/send-icon.png'> </button>
           </form>
->>>>>>> 87613ff14bc0d5672e0871ea7b48ab68018c77df
         </div>
       </section>
     </section>
@@ -117,54 +77,16 @@ export const me = `
   </footer>
 </div>
 `;
-
-// --------Mobile--------- //
-
-//--------Mobile---------//
 let editStatus = false;
 let idMob = '';
-
-// GUARDAR POST //
-const savePost = (inputPostMob, likes) => {
-  dataBase.collection('posts').doc().set({
-    inputPostMob,
-    likes,
-<<<<<<< HEAD
-    email //alamcenar el mail, uid, nombre, el length es la cantidad de likes, 
-    //if mail existe  en el array entonces ya no puedo dar click
-=======
->>>>>>> 87613ff14bc0d5672e0871ea7b48ab68018c77df
-  });
-};
-
-console.log(savepost)
-
-const getPost = (id) => dataBase.collection('posts').doc(id).get();
-const onGetPosts = (callback) => dataBase.collection('posts').onSnapshot(callback);
-const deletePost = (id) => dataBase.collection('posts').doc(id).delete();
-const updatePost = (id, updatedPost) => dataBase.collection('posts').doc(id).update(updatedPost);
-
-// document.addEventListener('DOMContentLoaded', async (e)=>{
-export async function agregapost() {
+export async function agregapost(firebaseClient) {
   const sectionPostMob = document.getElementById('section-post-mobile');
-  onGetPosts((querySnapshot) => {
+  firebaseClient.onGetPosts((querySnapshot) => {
     sectionPostMob.innerHTML = '';
     querySnapshot.forEach((doc) => {
       const publicationMob = doc.data();
       const numLikes = publicationMob.likes;
-      console.log(publicationMob);
       publicationMob.id = doc.id;
-<<<<<<< HEAD
-      sectionPostMob.innerHTML += `<div class='myPost'>
-            <p>${publicationMob.inputPostMob}</p>
-        </div>
-        <div class='box-icons'>
-            <button class='btn-icons icon-trash-mobile'><img data-id='${publicationMob.id}' class='icons-posts' src='../assets/trash-icon.png'></button>
-            <button class='btn-icons icon-edit-mobile'> <img data-id='${publicationMob.id}' class='icons-posts' src='../assets/write-icon.png'> </button>
-        </div>
-        `;
-=======
-      console.log(publicationMob.id);
       sectionPostMob.innerHTML += `
       <div class='myPost' id='imagen'>
         <p>${publicationMob.inputPostMob}</p>
@@ -176,47 +98,39 @@ export async function agregapost() {
         <span class='counter' id='counter' data-id='${publicationMob.id}'>${numLikes.length}</span>
       </div>
       `;
-
       const btnLike = document.querySelectorAll('.icon-likes');
-      const user = activeUser();
+      const user = firebaseClient.activeUser();
       btnLike.forEach((btn) => {
         btn.addEventListener('click', async (e) => {
           const id = e.target.dataset.id;
-          const docMob = await getPost(id);
+          const docMob = await firebaseClient.getPost(id);
           const postMob = docMob.data();
           if (postMob.likes.includes(user.email)) {
             const filteredEmails = postMob.likes.filter((email) => email !== user.email);
             const updates = { likes: filteredEmails };
-            await updatePost(id, updates);
+            await firebaseClient.updatePost(id, updates);
           } else {
             postMob.likes.push(user.email);
             const updates = { likes: postMob.likes };
-            await updatePost(id, updates);
-            // document.getElementById('color').style.backgroundColor = 'brown';
-            // sectionPostMob['icon-likes'].innerHTML = ` 
-            // <img data-id='${publicationMob.id}' class='icons-posts' src='../assets/cup-like.png'>
-            // `;
+            await firebaseClient.updatePost(id, updates);
           }
         });
       });
-
->>>>>>> 87613ff14bc0d5672e0871ea7b48ab68018c77df
       const btnsTrashMob = document.querySelectorAll('.icon-trash-mobile');
       btnsTrashMob.forEach((btn) => {
         btn.addEventListener('click', async (e) => {
           const mnjConfirm = confirm('¿Deseas borrar el post?');
           if (mnjConfirm === true) {
-            await deletePost(e.target.dataset.id);
+            await firebaseClient.deletePost(e.target.dataset.id);
           }
         });
       });
-
       const myPostMob = document.getElementById('my-posts-mobile');
       const btnsEditMob = document.querySelectorAll('.icon-edit-mobile');
       btnsEditMob.forEach((btn) => {
         btn.addEventListener('click', async (e) => {
           if (confirm('¿Deseas editar el post?')) {
-            const docMob = await getPost(e.target.dataset.id);
+            const docMob = await firebaseClient.getPost(e.target.dataset.id);
             const postMob = docMob.data();
             editStatus = true;
             idMob = docMob.id;
@@ -230,147 +144,40 @@ export async function agregapost() {
     });
   });
 }
-
-export function meVista(container) {
+export function meVista(container, firebaseClient) {
   // eslint-disable-next-line no-param-reassign
   container.innerHTML = me;
-  agregapost();
-}
-
-// CAPTURANDO EVENTOS DE FORM //
-document.addEventListener('submit', async (e) => {
-  if (e.target.matches('#my-posts-mobile')) {
-    const myPostMob = document.getElementById('my-posts-mobile');
-    e.preventDefault();
-    const inputPostMob = myPostMob['input-post-mobile'];
-    console.log(inputPostMob);
-    if (!editStatus) {
-      await savePost(inputPostMob.value, []);
-      setTimeout(() => {
-        alert('Tu post se ha publicado');
-      }, 1000);
-    } else {
-      await updatePost(idMob, {
-        inputPostMob: inputPostMob.value,
-      });
-      editStatus = false;
-      idMob = '';
-      myPostMob['send-icon-mobile'].innerHTML = ` 
-      <button id='send-icon-mobile' class='btn-icons'> <img class='send-icon icons-posts' src='../assets/send-icon.png'></button>
-      `;
-    }
-    myPostMob.reset();
-    inputPostMob.focus();
-  }
-});
-
-<<<<<<< HEAD
-document.addEventListener('click', (e) => {
-    if (e.target.matches('#calendar')) {
-      console.log('Estas en home');
+  agregapost(firebaseClient);
+  document.addEventListener('submit', async (e) => {
+    if (e.target.matches('#my-posts-mobile')) {
+      const myPostMob = document.getElementById('my-posts-mobile');
       e.preventDefault();
-      onNavigate('/home');
-    }
-    if (e.target.matches('#me')) {
-        console.log('Estas en me');
-        e.preventDefault();
-        onNavigate('/me');
+      const inputPostMob = myPostMob['input-post-mobile'];
+      if (!editStatus) {
+        await firebaseClient.savePost(inputPostMob.value, []);
+        setTimeout(() => {
+          alert('Tu post se ha publicado');
+        }, 1000);
+      } else {
+        await firebaseClient.updatePost(idMob, {
+          inputPostMob: inputPostMob.value,
+        });
+        editStatus = false;
+        idMob = '';
+        myPostMob['send-icon-mobile'].innerHTML = ` 
+        <button id='send-icon-mobile' class='btn-icons'> <img class='send-icon icons-posts' src='../assets/send-icon.png'></button>
+        `;
       }
-});
-
-document.addEventListener('click', (e) => {
-    if(e.target.matches('#logOut')){
-        salir();
+      myPostMob.reset();
+      inputPostMob.focus();
+    }
+  });
+  const logoutLink = document.getElementById('salir');
+    logoutLink.addEventListener('click', (e) => {
         e.preventDefault();
-    }
-})
-
-// let editStatusDesk = false;
-// let idDesk = '';
-// const savePostDesk = (inputPostDesk) => {
-//   dataBase.collection('posts').doc().set({
-//     inputPostDesk,
-//   });
-// };
-// const getPostDesk = (id) => dataBase.collection('posts').doc(id).get();
-// const onGetPostsDesk = (callback) =>
-//   dataBase.collection('posts').onSnapshot(callback);
-// const deletePostDesk = (id) => dataBase.collection('posts').doc(id).delete();
-// const updatePostDesk = (id, updatedPostDesk) =>
-//   dataBase.collection('posts').doc(id).update(updatedPostDesk);
-// document.addEventListener('DOMContentLoaded', async (e) => {
-//   const sectionPostDesk = document.getElementById('section-post-desktop');
-//   onGetPostsDesk((querySnapshot) => {
-//     sectionPostDesk.innerHTML = '';
-//     querySnapshot.forEach((doc) => {
-//       const publicationDesk = doc.data();
-//       publicationDesk.id = doc.id;
-//       sectionPostDesk.innerHTML += `<div class='myPost-desktop'>
-//        <p> ${publicationDesk.inputPostDesk}</p></div>
-//        <div class='icon-right-desktop'>
-//            <button class='btn-icons-desktop icon-trash-desktop'> <img data-id='${publicationDesk.id}' class='icons-posts-desktop' src='../assets/trash-icon.png'> </button>
-//            <button class='btn-icons-desktop icon-edit-desktop'> <img data-id='${publicationDesk.id}' class='icons-posts-desktop' src='../assets/write-icon.png'> </button>
-//        </div>
-//       `;
-//       const btnsTrashDesk = document.querySelectorAll('.icon-trash-desktop');
-//       btnsTrashDesk.forEach((btn) => {
-//         btn.addEventListener('click', async (e) => {
-//           await deletePostDesk(e.target.dataset.id);
-//         });
-//       });
-//       const myPostDesk = document.getElementById('my-posts-desktop');
-//       const btnsEditDesk = document.querySelectorAll('.icon-edit-desktop');
-//       btnsEditDesk.forEach((btn) => {
-//         btn.addEventListener('click', async (e) => {
-//           const docDesk = await getPostDesk(e.target.dataset.id);
-//           const postDesk = docDesk.data();
-//           editStatusDesk = true;
-//           idDesk = docDesk.id;
-//           myPostDesk['input-post-desktop'].value = postDesk.inputPostDesk;
-//           myPostDesk['send-icon-desktop'].innerHTML = `
-//               <button class='btn-icons-desktop'> <img id='icon-edit' class='icons-posts-desktop' src='../assets/write-icon.png'> </button>
-//               `;
-//         });
-//       });
-//     });
-//   });
-// });
-// document.addEventListener('submit', async (e) => {
-//   if (e.target.matches('#my-posts-desktop')) {
-//     const myPostDesk = document.getElementById('my-posts-desktop');
-//     e.preventDefault();
-//     const inputPostDesk = myPostDesk['input-post-desktop'];
-//     console.log(inputPostDesk);
-//     if (!editStatusDesk) {
-//       await savePostDesk(inputPostDesk.value);
-//     } else {
-//       await updatePostDesk(idDesk, {
-//         inputPostDesk: inputPostDesk.value,
-//       });
-//       editStatusDesk = false;
-//       idDesk = '';
-//       myPostDesk['send-icon-desktop'].innerHTML = `
-//            <button id='send-icon-desktop' class='btn-icons-desktop'> <img class='send-icon-desktop icons-posts-desktop' src='../assets/send-icon.png'></button>
-//           `;
-//     }
-//     myPostDesk.reset();
-//     inputPostDesk.focus();
-//   }
-// });
-
-
-
-function showMenu(){
-    const menu = document.getElementById('nav-mobile');
-    if(menu.classList.contains('disabled-menu')){
-      menu.classList.remove('disabled-menu');
-      menu.classList.add('enabled-menu');
-    }else{
-      menu.classList.remove('enabled-menu');
-      menu.classList.add('disabled-menu');
-    }
-    }
-=======
+        firebaseClient.salir();
+    })
+}
 function showMenu() {
   const menu = document.getElementById('nav-mobile');
   if (menu.classList.contains('disabled-menu')) {
@@ -381,47 +188,21 @@ function showMenu() {
     menu.classList.add('disabled-menu');
   }
 }
->>>>>>> 87613ff14bc0d5672e0871ea7b48ab68018c77df
-
 document.addEventListener('click', (e) => {
   if (e.target.matches('#calendar')) {
-    console.log('Estas en home');
     e.preventDefault();
     onNavigate('/home');
   }
   if (e.target.matches('#me')) {
-    console.log('Estas en me');
     e.preventDefault();
     onNavigate('/me');
   }
-  if (e.target.matches('.logOut')) {
-    salir();
-    e.preventDefault();
-  }
+  // if (e.target.matches('.logOut')) {
+  //   firebaseClient.salir();
+  //   e.preventDefault();
+  // }
   if (e.target.matches('.burger')) {
-    console.log('Burger');
     showMenu();
     e.preventDefault();
   }
-<<<<<<< HEAD
-  if(e.target.matches('#icon-likes')){
-      console.log('me gusta');
-  }
 });
-
-window.onload = function(){
-    console.log('aquí estoy');
-    verAutenticacion();
-}
-
-=======
-  if (e.target.matches('#icon-likes')) {
-    console.log('Me gusta');
-  }
-});
-
-window.onload = function () {
-  console.log('aquí estoy');
-  verAutenticacion();
-};
->>>>>>> 87613ff14bc0d5672e0871ea7b48ab68018c77df

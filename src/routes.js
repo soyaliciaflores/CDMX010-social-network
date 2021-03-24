@@ -1,26 +1,17 @@
-import { home } from './home.js';
-import { login } from './login.js';
-import { meVista } from './me.js';
-import { register } from './register.js';
+let routes = {};
 
-export const routes = {
-  '/home': home,
-  '/register': register,
-  '/': login,
-  '/me': meVista,
+let firebaseClient = null;
+
+export const loadRoutesAndFirebase = (routeFromMain, firebaseFromMain) => {
+  routes = routeFromMain;
+  firebaseClient = firebaseFromMain;
 };
 
 export const rootDiv = document.getElementById('root');
-// rootDiv.innerHTML = routes[window.location.pathname];
 
 export const onNavigate = (pathname) => {
   window.history.pushState({}, pathname, window.location.origin + pathname);
-  if (pathname === '/me') {
-    const init = routes[pathname];
-    init(rootDiv);
-  } else {
-    rootDiv.innerHTML = routes[pathname];
-  }
+  const component = routes[pathname];
+  component(rootDiv, firebaseClient);
 };
 
-onNavigate(window.location.pathname);
